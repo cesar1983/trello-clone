@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   background-color: #fff;
@@ -8,4 +8,4 @@ export const CardContainer = styled.div`
   max-width: 300px;
   border-radius: 3px;
   box-shadow: #091e4240 0px 1px 0px 0px;
-`;
+`

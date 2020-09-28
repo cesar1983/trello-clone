@@ -1,24 +1,25 @@
-import React from "react";
-import { Card } from "./components/Card";
-import { Column } from "./components/Column";
-import AddNewItem from "./components/AddNewItem";
-import * as S from "./styles";
+import React from 'react'
+import Column from './components/Column'
+import AddNewItem from './components/AddNewItem'
+import { useAppState } from './AppStateContext'
+
+import * as S from './styles'
 
 function App() {
+  const { state, dispatch } = useAppState()
+
   return (
     <S.AppContainer>
-      <Column title="To Do">
-        <Card text="Generate app scaffold" />
-      </Column>
-      <Column title="In Progress">
-        <Card text="Learn Typescript" />
-      </Column>
-      <Column title="Done">
-        <Card text="Begin to use static typing" />
-      </Column>
-      <AddNewItem toggleButtonText="+ Add another list" onAdd={console.log} />
+      {state.lists.map((list, i) => (
+        <Column title={list.text} key={list.id} index={i} id={list.id} />
+      ))}
+
+      <AddNewItem
+        toggleButtonText="+ Add another list"
+        onAdd={(text) => dispatch({ type: 'ADD_LIST', payload: text })}
+      />
     </S.AppContainer>
-  );
+  )
 }
 
-export default App;
+export default App

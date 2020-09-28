@@ -7,6 +7,9 @@ type CardProps = {
   text?: string
 }
 
-export const Card = ({ text }: CardProps) => {
+const Card = ({ text }: CardProps) => {
   return <S.CardContainer>{text}</S.CardContainer>
 }
+
+
+export default Card

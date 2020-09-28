@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import * as S from '../styles'
-import NewItemForm from './NewItemForm'
+import NewItemForm from '../NewItemForm'
+import * as S from './styles'
 
 type AddNewItemProps = {
   onAdd(text: string): void

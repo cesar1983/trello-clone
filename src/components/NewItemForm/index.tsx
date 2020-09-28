@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import useFocus from '../utils/useFocus'
+import useFocus from '../../utils/useFocus'
 
-import * as S from '../styles'
+import * as S from './styles'
 
 interface NewItemFormProps {
   handleAddButtonClick(text: string): void
