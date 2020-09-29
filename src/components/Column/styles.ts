@@ -13,7 +13,7 @@ export const ColumnContainer = styled(DragPreviewContainer)`
   width: 300px;
   min-height: 40px;
   margin-right: 20px;
-  border-radius: 3px; dsadsdf
+  border-radius: 3px;
   padding: 8px 8px;
   flex-grow: 0;
 `
