@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useAppState } from '../../AppStateContext'
-import { useItemDrag } from '../../utils/useItemDrag'
+import { useItemDrag } from '../../hooks/useItemDrag'
 import { useDrop } from 'react-dnd'
 
 import AddNewItem from '../AddNewItem'
@@ -15,14 +15,14 @@ type ColumnProps = {
   title: string
   index: number
   id: string
+  isPreview?: boolean
 }
 
-const Column = ({ title, index, id }: ColumnProps) => {
+const Column = ({ title, index, id, isPreview }: ColumnProps) => {
   const { state, dispatch } = useAppState()
   const ref = useRef<HTMLDivElement>(null)
 
   const { drag } = useItemDrag({ index, id, title, type: 'COLUMN' })
-  drag(ref)
 
   const [, drop] = useDrop({
     accept: 'COLUMN',
@@ -41,7 +41,8 @@ const Column = ({ title, index, id }: ColumnProps) => {
   return (
     <S.ColumnContainer
       ref={ref}
-      isHidden={isHidden(state.draggedItem, 'COLUMN', id)}
+      isHidden={isHidden(isPreview, state.draggedItem, 'COLUMN', id)}
+      isPreview={isPreview}
     >
       <S.ColumnTitle>{title}</S.ColumnTitle>
 

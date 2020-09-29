@@ -3,6 +3,8 @@ import Column from './components/Column'
 import AddNewItem from './components/AddNewItem'
 import { useAppState } from './AppStateContext'
 
+import CustomDragLayer from './components/CustomDragLayer'
+
 import * as S from './styles'
 
 function App() {
@@ -10,8 +12,9 @@ function App() {
 
   return (
     <S.AppContainer>
+      <CustomDragLayer />
       {state.lists.map((list, i) => (
-        <Column title={list.text} key={list.id} index={i} id={list.id} />
+        <Column title={list.title} key={list.id} index={i} id={list.id} />
       ))}
 
       <AddNewItem

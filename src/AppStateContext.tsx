@@ -14,22 +14,22 @@ const appData: AppState = {
   lists: [
     {
       id: '0',
-      text: 'To Do',
+      title: 'To Do',
       tasks: [{ id: 'c0', text: 'Generate app scaffold' }]
     },
     {
       id: '1',
-      text: 'In Progress',
+      title: 'In Progress',
       tasks: [{ id: 'c1', text: 'Learn Typescript' }]
     },
     {
       id: '2',
-      text: 'Information needed',
+      title: 'Information needed',
       tasks: [{ id: 'c2', text: 'More information needed...' }]
     },
     {
       id: '3',
-      text: 'Done',
+      title: 'Done',
       tasks: [{ id: 'c3', text: 'Begin to use static typing' }]
     }
   ],
@@ -43,7 +43,7 @@ interface Task {
 
 interface List {
   id: string
-  text: string
+  title: string
   tasks: Task[]
 }
 
@@ -125,7 +125,7 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
           ...state.lists,
           {
             id: nanoid(),
-            text: action.payload,
+            title: action.payload,
             tasks: []
           }
         ]

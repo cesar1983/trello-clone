@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useFocus from '../../utils/useFocus'
+import useFocus from '../../hooks/useFocus'
 
 import * as S from './styles'
 

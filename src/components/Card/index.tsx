@@ -11,5 +11,4 @@ const Card = ({ text }: CardProps) => {
   return <S.CardContainer>{text}</S.CardContainer>
 }
 
-
 export default Card
